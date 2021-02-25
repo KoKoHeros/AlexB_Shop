@@ -52,10 +52,9 @@ class PaymentsController extends Controller
     public function paymentSuccess(Request $request)
     {
         $gateway = Omnipay::create('PayPal_Rest');
-        $gateway->setClientId(env('PAYPAL_SANDBOX_CLIENT_ID','AaVlBLOqaLoyEUWE6s1BMiHF_ETbhfLK44UKfiPm1YO_So0xRe6hDjIBwHDMcKwHHostJaM6D5-0622k'));
-        $gateway->setSecret(env('PAYPAL_SANDBOX_CLIENT_SECRET','EMiNqrAAgLIDT5OBzPsB0Q791vHiqpm95HePI_iPlkwc27VCEHBqZA9AM4KO-5kZBn_eR5ZNzP_9TE5B'));
-        $gateway->setTestMode(true);
+        $gateway->setClientId('AYj7mB3NywLmelbkLoXoXqGY9hy57yp2raUSbLhoy3c78v5CxUc4IXDVMlywkUhOFg4D8VdAWCHeLMag');
 
+        $gateway->setSecret('ENkNSAGY5L1pAVuy5a8dYeL_K3waiIW-ZLCOeSQDTLoDY42h3oqX_AGAgaAbxM1uVR53W32slLYSeqJr');
         $request= $request->all();
 
         $transaction = $gateway->completePurchase(array(
