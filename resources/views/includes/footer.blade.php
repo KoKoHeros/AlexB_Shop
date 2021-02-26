@@ -18,20 +18,13 @@
                                 <li>
                                     <i class="flaticon-phone"></i>
                                     <p>Call Us</p>
-                                    <h5><a href="tel:8602729738">860 -272 -9738</a></h5>
+                                    <h5><a href="tel:+234 554 657 345">+234 554 657 345</a></h5>
                                 </li>
                                 <li>
                                     <i class="flaticon-maps-and-flags"></i>
                                     <p>Address</p>
-                                    <h5>4249 Hart Street, Enfield</h5>
+                                    <h5>Zanzibar, Tanzania</h5>
                                 </li>
-                            </ul>
-                            <ul class="social-links clearfix">
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="https://www.google.com/"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="https://dribbble.com/"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="https://www.pinterest.nz/"><i class="fab fa-pinterest-p"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,9 +51,10 @@
             <div class="copyright pull-left"><h5>&copy;2020 CopyRight <a href="index.html">Example</a>. All rights reserved.</h5></div>
             <ul class="footer-nav pull-right clearfix">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">About</a></li>
-                <li><a href="index.html">Blog</a></li>
-                <li><a href="index.html">Contact</a></li>
+                <li><a href="index.html">AboutUs</a></li>
+                <li><a href="index.html">Shop</a></li>
+                <li><a href="index.html">Pricing Plan</a></li>
+                <li><a href="index.html">Faq</a></li>
             </ul>
         </div>
     </div>

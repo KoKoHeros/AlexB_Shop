@@ -32,19 +32,8 @@ class ShopController extends Controller
         return view('detail',compact('product_detail'));
     }
 
-    function remove(Request $request){
-        $session_id = $request -> session_id;
-        $product_id = $request -> product_id;
-        $cart = Session::get('cart');
-        unset($cart[$session_id]);
-        Session::pull('cart',$session_id);
-        Cart::where('product_id',$product_id)->delete();
-        return redirect()->back();
-    }
-
-
     function shop(){
-        $product = Product::paginate(9);
+        $product = Product::paginate(16);
         return view('shop',compact('product'));
     }
 
@@ -54,34 +43,97 @@ class ShopController extends Controller
     }
 
 
-    function sortByBeef(){
-        $product = Product::where('category','Beef')->paginate(9);
+    function Fruit_Vegetables(){
+        $product = Product::where('category','Fruit & Vegetables')->paginate(12);
         return view('shop',compact('product'));
     }
 
-    function sortByPork(){
-        $product = Product::where('category','Pork')->paginate(9);
+    function MeatPoultry(){
+        $product = Product::where('category','MeatPoultry')->paginate(12);
         return view('shop',compact('product'));
     }
 
-    function sortByLamb(){
-        $product = Product::where('category','Lamb')->paginate(9);
+    function Fish_Seafood(){
+        $product = Product::where('category','Fish & Seafood')->paginate(12);
         return view('shop',compact('product'));
     }
 
-    function add_cart(Request $request){
+    function Delicatessen(){
+        $product = Product::where('category','Delicatessen')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function Diary_Eggs(){
+        $product = Product::where('category','Diary & Eggs')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function EverydayEssentials(){
+        $product = Product::where('category','EverydayEssentials')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function Bakery(){
+        $product = Product::where('category','Bakery')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function Impulse_Snaking(){
+        $product = Product::where('category','Impulse & Snaking')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function Drinks(){
+        $product = Product::where('category','Drinks')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    function CateringSupplies(){
+        $product = Product::where('category','CateringSupplies')->paginate(12);
+        return view('shop',compact('product'));
+    }
+
+    public function add_cart(Request $request){
         $product_id = $_GET['product_id'];
+        $quantity = $_GET['quantity'];
+        $newCart = new Cart();
+        $check = 0;
         $session = Session::get('cart');
         if($session){
             foreach ($session as $item)
             {
                 if($item==$product_id){
-                    return 'This product is already exist in cart.';
+                    $check = 1;
                 }
             }
         }
-        $request->session()->push('cart', $product_id);
-        return 'This product is successfully added in cart.';
+        if($check == 1){
+            $cart = Cart::where('id',$product_id)->first();
+            $cart-> quantity = $quantity+$cart-> quantity;
+            $cart -> save();
+            return 'This product is successfully added in cart.';
+        }
+        else
+        {
+            $request->session()->push('cart', $product_id);
+            $cart = Product::where('id',$product_id)->first();
+            $newCart-> product_id = $cart -> id;
+            $newCart-> name  = $cart -> name;
+            $newCart-> review = $cart -> review;
+            $newCart-> review_written_user_client = $cart -> review_written_user_client;
+            $newCart-> review_mark = $cart -> review_mark;
+            $newCart-> price = $cart -> price;
+            $newCart-> quantity = $quantity;
+            $newCart-> description = $cart -> description;
+            $newCart-> category = $cart -> category;
+//                    $newCart-> tags = $cart -> tags;
+            $newCart-> main_image = $cart -> main_image;
+            $newCart-> sub_image1 = $cart -> sub_image1;
+            $newCart-> sub_image2 = $cart -> sub_image2;
+            $newCart-> sub_image3 = $cart -> sub_image3;
+            $newCart -> save();
+            return 'This product is successfully added in cart.';
+        }
     }
 
     function carts(Request $request){
@@ -91,6 +143,8 @@ class ShopController extends Controller
                 $newCart = new Cart();
                 $carts = Product::where('id',$list)->get();
                 foreach ($carts as $cart){
+
+
                     if(Cart::where('product_id',$cart->id)->first())continue;
                     $newCart-> product_id = $cart -> id;
                     $newCart-> name  = $cart -> name;
@@ -150,73 +204,5 @@ class ShopController extends Controller
         return $product_id*$quantity;
     }
 
-    function saveproduct(Request $request){
-        $name = $request -> name;
-        $price = $request -> price;
-        $description = $request -> description;
-        $category = $request -> category;
-//        $tags = $request -> tags;
-        if(!$name or !$price or !$description or !$category or $request->main_image==null or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
-        {
-            toastr()->warning('Please input correctly in all forms!');
-
-            return redirect()->back();
-        }
-
-        $main_image_path = $request->main_image->store('uploads');
-        $sub_image_path1 = $request->sub_image1->store('uploads');
-        $sub_image_path2 = $request->sub_image2->store('uploads');
-        $sub_image_path3 = $request->sub_image3->store('uploads');
-
-
-        $product = new Product();
-        $product -> name = $name;
-        $product -> price = $price;
-        $product -> description = $description;
-//        $product -> tags = $tags;
-        $product -> category = $category;
-        $product -> main_image = $main_image_path;
-        $product -> sub_image1 = $sub_image_path1;
-        $product -> sub_image2 = $sub_image_path2;
-        $product -> sub_image3 = $sub_image_path3;
-        $product -> save();
-        toastr()->success('Product was successfully added.');
-
-        return redirect()->back();
-    }
-    function savefeaturedproduct(Request $request){
-        $name = $request -> name;
-        $price = $request -> price;
-        $description = $request -> description;
-        $category = $request -> category;
-//        $tags = $request -> tags;
-        if(!$name or !$price or !$description or !$category or $request->main_image==null or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
-        {
-            toastr()->warning('Please input correctly in all forms!');
-
-            return redirect()->back();
-        }
-
-        $main_image_path = $request->main_image->store('uploads');
-        $sub_image_path1 = $request->sub_image1->store('uploads');
-        $sub_image_path2 = $request->sub_image2->store('uploads');
-        $sub_image_path3 = $request->sub_image3->store('uploads');
-
-
-        $product = new FeaturedProduct();
-        $product -> name = $name;
-        $product -> price = $price;
-        $product -> description = $description;
-//        $product -> tags = $tags;
-        $product -> category = $category;
-        $product -> main_image = $main_image_path;
-        $product -> sub_image1 = $sub_image_path1;
-        $product -> sub_image2 = $sub_image_path2;
-        $product -> sub_image3 = $sub_image_path3;
-        $product -> save();
-        toastr()->success('Product was successfully added.');
-
-        return redirect()->back();
-    }
 }
 

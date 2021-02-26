@@ -32,32 +32,36 @@ Route::get('/faq', function () {
 });
 
 Route::get('shop','ShopController@shop')->name('shop');
-Route::get('sortByBeef','ShopController@sortByBeef')->name('sortByBeef');
-Route::get('sortByPork','ShopController@sortByPork')->name('sortByPork');
-Route::get('sortByLamb','ShopController@sortByLamb')->name('sortByLamb');
+Route::get('All','ShopController@shop')->name('shop');
+Route::get('Fruit&Vegetables','ShopController@Fruit_Vegetables')->name('Fruit_Vegetables');
+Route::get('MeatPoultry','ShopController@MeatPoultry')->name('MeatPoultry');
+Route::get('Fish&Seafood','ShopController@Fish_Seafood')->name('Fish_Seafood');
+Route::get('Delicatessen','ShopController@Delicatessen')->name('Delicatessen');
+Route::get('Diary&Eggs','ShopController@Diary_Eggs')->name('Diary_Eggs');
+Route::get('EverydayEssentials','ShopController@EverydayEssentials')->name('EverydayEssentials');
+Route::get('Bakery','ShopController@Bakery')->name('Bakery');
+Route::get('Impulse&Snaking','ShopController@Impulse_Snaking')->name('Impulse_Snaking');
+Route::get('Drinks','ShopController@Drinks')->name('Drinks');
+Route::get('CateringSupplies','ShopController@CateringSupplies')->name('CateringSupplies');
+
+
 Route::get('add_cart','ShopController@add_cart')->name('add_cart');
 Route::get('carts','ShopController@carts')->name('carts');
 Route::get('purchase','ShopController@purchase')->name('purchase');
 Route::get('change_quantity','ShopController@change_quantity')->name('change_quantity');
 
-Route::post('more_details','ShopController@more_details')->name('more_details');
-Route::post('more_detail','ShopController@more_detail')->name('more_detail');
 
-Route::get('/addproduct', function () {
-    return view('addproduct');
-});
-Route::get('/add_featuredproduct', function () {
-    return view('addfeaturedproduct');
-});
+Route::post('more_details','ShopController@more_details')->name('more_details');
+Route::get('admin','AdminController@admin')->name('admin');
 
 Route::get('/test', function () {
     return view('test');
 });
 
 
-Route::post('saveproduct','ShopController@saveproduct')->name('saveproduct');
-Route::post('savefeaturedproduct','ShopController@savefeaturedproduct')->name('savefeaturedproduct');
-Route::post('remove','ShopController@remove')->name('remove');
+Route::post('saveproduct','AdminController@saveproduct')->name('saveproduct');
+Route::post('savefeaturedproduct','AdminController@savefeaturedproduct')->name('savefeaturedproduct');
+Route::post('remove','AdminController@remove')->name('remove');
 //Auth::routes();
 
 

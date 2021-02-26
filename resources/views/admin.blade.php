@@ -35,7 +35,6 @@
     <meta name="google-signin-client_id" content="363405147790-ufaj9iena6poqmoinr6dms75ajl6hc79.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script></head>
 
-
 <!-- page wrapper -->
 <body>
 
@@ -44,8 +43,6 @@
     <!-- preloader -->
     <div class="preloader"></div>
     <!-- preloader -->
-
-
     <!-- sidebar cart item -->
     <div class="xs-sidebar-group info-group info-sidebar">
         <div class="xs-overlay xs-bg-black"></div>
@@ -68,9 +65,9 @@
                             <div class="contact-info">
                                 <h4>Contact Info</h4>
                                 <ul>
-                                    <li>Zanzibar, Tanzania</li>
-                                    <li><a href="tel:+234 554 657 345">+234 554 657 345</a></li>
-                                    <li><a href="info@pantheonsupplies.com">info@pantheonsupplies.com</a></li>
+                                    <li> Zanzibar, Tanzania</li>
+                                    <li><a href="tel:+8801682648101">+234 554 657 345</a></li>
+                                    <li><a href="mailto:info@pantheonsupplies.com">info@pantheonsupplies.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -120,7 +117,7 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li><a href="{{url('home')}}">HOME</a></li>
+                                    <li class="dropdown"> <a href="{{url('admin')}}">Admin</a></li>                                    <li><a href="{{url('home')}}">HOME</a></li>
                                     <li><a href="{{url('about')}}">ABOUT US</a></li>
                                     <li><a href="{{url('shop')}}">SHOP</a></li>
                                     <li><a href="{{url('pricing')}}">PRICING PLAN</a></li>
@@ -128,7 +125,7 @@
                                 </ul>
                             </div>
                         </nav>
-                        <ul class="menu-right-content pull-left clearfix" style="padding-top: 2.8%">
+                        <ul class="menu-right-content pull-left clearfix" style="margin-top: 2%">
 
                             <li class="user-box"><a href=""><i class="flaticon-user-symbol-of-thin-outline"></i></a></li>
                             <li class="search-box-outer">
@@ -137,19 +134,19 @@
                                     <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
                                         <li class="panel-outer">
                                             <div class="form-container">
-                                                {{--<form method="post" action="blog.html">--}}
-                                                    <div class="form-group">
-                                                        <input type="search" name="field-name" value="" placeholder="Search...." required="">
-                                                        <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
-                                                    </div>
-                                                {{--</form>--}}
+                                                <form method="post" action="blog.html">
+                                                <div class="form-group">
+                                                    <input type="search" name="field-name" value="" placeholder="Search...." required="">
+                                                    <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                                </div>
+                                                </form>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{count(collect(Session::get('cart')))}}</span></a></li>
-                            {{--<li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{sizeof(\App\Cart::all())}}</span></a></li>--}}
+
                         </ul>
                     </div>
                 </div>
@@ -160,7 +157,7 @@
         <div class="sticky-header">
             <div class="auto-container">
                 <div class="outer-box clearfix">
-                    <figure class="logo-box pull-left"><a href=""><img src="assets/images/small-logo.png" alt=""></a></figure>
+                    <figure class="logo-box pull-left"><a><img src="assets/images/small-logo.png" alt=""></a></figure>
                     <div class="menu-area pull-right">
                         <nav class="main-menu clearfix">
                             <!--Keep This Empty / Menu will come through Javascript-->
@@ -178,16 +175,86 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href=""><img src="assets/images/logo-2.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a><img src="assets/images/logo-2.png" alt="" title=""></a></div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
             <div class="contact-info">
                 <h4>Contact Info</h4>
                 <ul>
-                    <li>Chicago 12, Melborne City, USA</li>
-                    <li><a href="tel:+8801682648101">+88 01682648101</a></li>
+                    <li>Zanzibar, Tanzania</li>
+                    <li><a href="tel:+234 554 657 345">+234 554 657 345</a></li>
                     <li><a href="mailto:info@pantheonsupplies.com">info@pantheonsupplies.com</a></li>
                 </ul>
             </div>
         </nav>
     </div><!-- End Mobile Menu -->
 
+    <!-- shop-page-section -->
+<section class="row">
+    <div class="auto-container col-md-6 col-sm-6 col-xl-6 col-lg-6">
+        <div class="row" style="">
+            <form action="{{url('saveproduct')}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <div><h1 style="text-align: center;font-weight: bold;margin: 10%">Products</h1></div>
+                <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
+                <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
+                <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
+                {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
+                <div><label style="width: 49%">category:</label>
+                    <select  type="text" name="category" style="width:50%;border:solid 1px;">
+                        <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
+                        <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
+                        <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
+                        <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
+                        <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
+                        <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
+                        <option name="Bakery" style="border:solid 1px;">Bakery</option>
+                        <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
+                        <option name="Drinks" style="border:solid 1px;">Drinks</option>
+                        <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
+                    </select>
+                </div>
+                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>
+                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                <div><label style="width: 50%">SubImage3:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                <div style="margin-top: 5%" class="text-center"><button type="submit" class="btn btn-primary" >Save</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="auto-container col-md-6 col-sm-6 col-xl-6 col-lg-6">
+        <div class="row">
+            <form action="{{url('savefeaturedproduct')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div><h1 style="text-align: center;font-weight: bold;margin: 10%">Featured Products</h1></div>
+
+                <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
+                <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
+                <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
+                {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
+                <div><label style="width: 49%">category:</label>
+                    <select  type="text" name="category" style="width:50%;border:solid 1px;">
+                        <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
+                        <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
+                        <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
+                        <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
+                        <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
+                        <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
+                        <option name="Bakery" style="border:solid 1px;">Bakery</option>
+                        <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
+                        <option name="Drinks" style="border:solid 1px;">Drinks</option>
+                        <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
+                    </select>
+                </div>
+                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>
+                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                <div><label style="width: 50%">SubImage3:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                <div class="text-center" style="margin-top: 5%"><button type="submit" class="btn btn-primary">Save</button></div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- shop-page-section end -->
+
+@include('includes.footer')

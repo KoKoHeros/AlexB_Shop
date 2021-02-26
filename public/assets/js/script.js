@@ -441,12 +441,16 @@
 })(window.jQuery);
 
 $(document).ready(function() {
-    $("#sub_image1").click(function() {
+    $("#sub_image1").click(function(el) {
         image_src = $('#sub_image1').prop('src');
         $('.main_image').attr("src", image_src);
     });
 });
 
+function changeborder1(el) {
+        el.style.border = "1px solid blue";
+    // el.style.border = "2px solid red";
+}
 
 $(document).ready(function() {
     $("#sub_image2").click(function() {
@@ -465,15 +469,16 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $(".add_cart").click(function(event) {
-        // alert(event.target.id)
         product_id = event.target.id;
+        quantity = event.target.name;
         $.ajax({
             url: "/add_cart",
             type:'get',
             // url: '/add_cart',
             // cache: false,
             data:{
-                product_id:product_id
+                product_id:product_id,
+                quantity:quantity
             },
             success: function(result){
                 if(result){
@@ -525,89 +530,37 @@ $("#purchase").click(function (){
 $('#amount').click(function () {
     $(this).click='disable';
 })
-// $("#paypal").click(function (event){
-//      $amount = event.target.name;
-//     $.ajax({
-//         url: "/payment",
-//         type:'get',
-//         data:{
-//             amount:$amount
-//         },
-//         success: function(result){
-//             if(result){
-//                 document.getElementById('purchase_area').style.display = "block";
-//                 document.getElementById('pay_area').style.display = "block";
-//
-//                 alert('Successfully payed!')
-//             }
-//         }
-//
-//     });
-// });
 
 
 
 $(document).ready(function() {
-    $(".quantity-spinner").click(function(event) {
+    $(".quantity-spinner").click(function (event) {
         product_id = event.target.id;
-        if(event.target.value<1){event.target.value=1;}
+        if (event.target.value < 1) {
+            event.target.value = 1;
+        }
         amount = event.target.value * event.target.alt;
-        event.target.name= amount;
+        event.target.name = amount;
         $.ajax({
             url: "/change_quantity",
-            type:'get',
+            type: 'get',
             // cache: false,
-            data:{
-                product_id:product_id,
-                quantity:event.target.value,
-                price:event.target.alt
+            data: {
+                product_id: product_id,
+                quantity: event.target.value,
+                price: event.target.alt
             },
-            success: function(result) {
+            success: function (result) {
             }
         });
     });
 });
 
 
-$(document).ready(function() {
-    $(".quantity-spinner").click(function(event) {
-        product_id = event.target.id;
-        if(event.target.value<1){event.target.value=1;}
-        amount = event.target.value * event.target.alt;
-        event.target.name= amount;
-        $.ajax({
-            url: "/change_quantity",
-            type:'get',
-            // cache: false,
-            data:{
-                product_id:product_id,
-                quantity:event.target.value,
-                price:event.target.alt
-            },
-            success: function(result) {
-            }
-        });
-    });
-});
+    function change_quantity(value) {
+        // if(event.target.value<1){event.target.value=1;}
+        $('#product_quantity').attr("name", value);
+        $('.add_cart').attr("name", value);
 
-// $(document).ready(function() {
-//     $("#product_quantity").click(function(event) {
-//         product_id = event.target.id;
-//         if(event.target.value<1){event.target.value=1;}
-//         amount = event.target.value * event.target.alt;
-//         event.target.name= amount;
-//         $.ajax({
-//             url: "/change_quantity",
-//             type:'get',
-//             // cache: false,
-//             data:{
-//                 product_id:product_id,
-//                 quantity:event.target.value,
-//                 price:event.target.alt
-//             },
-//             success: function(result) {
-//             }
-//         });
-//     });
-// });
+    }
 

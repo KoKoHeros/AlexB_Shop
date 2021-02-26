@@ -12,25 +12,30 @@
                                 <div class="slider-content">
                                     <div class="slider-pager">
                                         <ul class="thumb-box">
+
+
                                             <li>
-                                                <a data-slide-index="0">
-                                                    <figure><img  id="sub_image1" src="{{$item -> sub_image1}}" alt=""></figure>
-                                                </a>
+                                                <a class="active" data-slide-index="0" href="#"><figure><img style="width:134px;height: 136px;"  src="{{$item -> sub_image1}}" alt=""></figure></a>
                                             </li>
+                                            {{--<li>--}}
+                                                {{--<a data-slide-index="0"  class="active">--}}
+                                                    {{--<figure style=""><img  id="sub_image1" src="{{$item -> sub_image1}}" alt="" onclick="changeborder(this)"></figure>--}}
+                                                {{--</a>--}}
+                                            {{--</li>--}}
                                             <li>
                                                 <a data-slide-index="1">
-                                                    <figure><img  id="sub_image2" src="{{$item -> sub_image2}}" alt=""></figure>
+                                                    <figure><img  id="sub_image2" style="width:134px;height: 136px;"  src="{{$item -> sub_image2}}" alt="" onclick="changeborder(this)"></figure>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a data-slide-index="2"><figure><img  id="sub_image3" src="{{$item -> sub_image3}}" alt=""></figure></a>
+                                                <a data-slide-index="2"><figure><img  style="width:134px;height: 136px;" id="sub_image3" src="{{$item -> sub_image3}}" alt="" onclick="changeborder(this)"></figure></a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="product-image">
                                         <figure class="image">
                                             <a>
-                                                <img class="main_image" src="{{$item -> main_image}}" alt="No Image">
+                                                <img class="main_image" style="width:382px;height: 476px;" src="{{$item -> main_image}}" alt="No Image">
                                             </a>
                                         </figure>
                                     </div>
@@ -41,16 +46,16 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                         <div class="product-details">
                             <h2>{{$item -> name}}</h2>
-                            <div class="customer-review clearfix">
-                                <ul class="rating-box clearfix">
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                                <div class="reviews"><a>(2 customer review)</a></div>
-                            </div>
+                            {{--<div class="customer-review clearfix">--}}
+                                {{--<ul class="rating-box clearfix">--}}
+                                    {{--<li><i class="fas fa-star"></i></li>--}}
+                                    {{--<li><i class="fas fa-star"></i></li>--}}
+                                    {{--<li><i class="fas fa-star"></i></li>--}}
+                                    {{--<li><i class="fas fa-star"></i></li>--}}
+                                    {{--<li><i class="fas fa-star"></i></li>--}}
+                                {{--</ul>--}}
+                                {{--<div class="reviews"><a>(2 customer review)</a></div>--}}
+                            {{--</div>--}}
                             <div class="item-price"><h3>{{$item -> price}}$</h3></div>
                             <div class="text">
                                 <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
@@ -69,50 +74,41 @@
                                 {{--</ul>--}}
                             </div>
                             <div class="othre-options clearfix">
-                                {{--<div class="item-quantity">--}}
-                                    {{--<input class="quantity-spinner" id="product_quantity" type="number" value="1" name="quantity">--}}
-                                {{--</div>--}}
-                                <div class="btn-box" style="text-align: center;padding:0px;margin: auto"><button  class="add_cart theme-btn" id="{{$item->id}}">Add to cart</button></div>
-                            </div>
-                            <ul class="share-option clearfix">
-                                <li>Share is Caring:</li>
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="https://www.google.com/"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="https://dribbble.com/"><i class="fab fa-dribbble"></i></a></li>
-                                <li><a href="https://www.pinterest.nz/"><i class="fab fa-pinterest-p"></i></a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="product-discription">
-                <div class="tabs-box">
-                    <div class="tab-btn-box">
-                        <ul class="tab-btns tab-buttons clearfix">
-                            <li class="tab-btn active-btn" data-tab="#tab-1">Description</li>
-                            <li class="tab-btn" data-tab="#tab-2">Reviews (2)</li>
-                        </ul>
-                    </div>
-                    <div class="tabs-content">
-                        <div class="tab active-tab" id="tab-1">
-                            <div class="text">
-                                <h3>{{$item -> name}}</h3>
-                                <p>{{$item -> description}}</p>
-                            </div>
-                        </div>
-                        <div class="tab" id="tab-2">
-                            <div class="text">
-                                <h3>{{$item -> name}}</h3>
-                                <p>{{$item -> review}}</p>
+                                <div class="item-quantity">
+                                    <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;"  type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
+                                </div>
+                                <div class="btn-box" style="text-align: center;padding:0px;margin: auto"><button class="add_cart theme-btn" name="1" id="{{$item->id}}">Add to cart</button></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            {{--<div class="product-discription">--}}
+                {{--<div class="tabs-box">--}}
+                    {{--<div class="tab-btn-box">--}}
+                        {{--<ul class="tab-btns tab-buttons clearfix">--}}
+                            {{--<li class="tab-btn active-btn" data-tab="#tab-1">Description</li>--}}
+                            {{--<li class="tab-btn" data-tab="#tab-2">Reviews (2)</li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                    {{--<div class="tabs-content">--}}
+                        {{--<div class="tab active-tab" id="tab-1">--}}
+                            {{--<div class="text">--}}
+                                {{--<h3>{{$item -> name}}</h3>--}}
+                                {{--<p>{{$item -> description}}</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="tab" id="tab-2">--}}
+                            {{--<div class="text">--}}
+                                {{--<h3>{{$item -> name}}</h3>--}}
+                                {{--<p>{{$item -> review}}</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         @endforeach
 
         {{--<div class="related-product">--}}

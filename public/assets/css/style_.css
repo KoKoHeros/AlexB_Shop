@@ -54,7 +54,7 @@
 * {
   padding:2px;
   border:none;
-  margin:0 auto;
+  margin:0 fixed;
   outline: none;
 }
 
@@ -2311,6 +2311,7 @@ div#mCSB_1_container{
   background-color: #da292a;
   color: #fae8e8;
 }
+
 
 .shop-block-one .inner-box .image-box .list li:last-child button{
   position: relative;

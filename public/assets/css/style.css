@@ -61,10 +61,16 @@
 *{
   padding:0px;
   border:none;
-  margin:0 auto;
   outline: none;
 }
 
+
+#pay_area{
+  padding:0px;
+  border:none;
+  margin: 0 auto;
+  outline: none;
+}
 /*** 
 
 ====================================================================
