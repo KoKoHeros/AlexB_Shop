@@ -190,12 +190,11 @@
 
     <!-- shop-page-section -->
 <section class="row">
-    <div class="auto-container col-md-6 col-sm-6 col-xl-6 col-lg-6">
-        <div class="row" style="">
+    <div class="container col-md-6 col-sm-12 col-xl-6">
+        <div  class="container" style="padding-left:20%; padding-right: 20%">
             <form action="{{url('saveproduct')}}" method="post" enctype="multipart/form-data">
                 @csrf
-
-                <div><h1 style="text-align: center;font-weight: bold;margin: 10%">Products</h1></div>
+                <div style="padding: 5%"><h1 style="text-align: center;font-weight: bold;">Products</h1></div>
                 <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
                 <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
                 <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
@@ -222,12 +221,11 @@
             </form>
         </div>
     </div>
-    <div class="auto-container col-md-6 col-sm-6 col-xl-6 col-lg-6">
-        <div class="row">
+    <div class="col-md-6 col-sm-12 col-xl-6">
+        <div class="container" style="padding-left:20%; padding-right: 20%">
             <form action="{{url('savefeaturedproduct')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div><h1 style="text-align: center;font-weight: bold;margin: 10%">Featured Products</h1></div>
-
+                <div  style="padding: 5%"><h1 style="text-align: center;font-weight: bold;">Featured Products</h1></div>
                 <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
                 <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
                 <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>

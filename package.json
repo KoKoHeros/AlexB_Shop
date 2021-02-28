@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-input-spinner": "^1.17.2",
         "yarn": "^1.22.5"
     }
 }

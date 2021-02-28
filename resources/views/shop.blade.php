@@ -29,36 +29,39 @@
                     <div class="sidebar-widget filter-widget">
                         <div class="widget-title">
                             <h3>Filter</h3>
-                            <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
-
                         </div>
-                        <div class="clearfix">
-                            <!--Range slider with lower tootlip at bottom -->
-                            <div id="pmd-slider-range-tooltip-bottom"  class="pmd-range-slider pmd-range-tooltip pmd-range-tooltip-bottom"></div>
-
+                        <div class="range-slider clearfix">
+                            <div class="price-range-slider"></div>
+                            <div class="clearfix">
+                                <div class="title"></div>
+                                <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                            </div>
                         </div>
                     </div>
 
 
 
-                    {{--<div class="sidebar-widget sidebar-tags">--}}
-                        {{--<div class="widget-title">--}}
-                            {{--<h3>Product tags</h3>--}}
-                        {{--</div>--}}
-                        {{--<div class="widget-content">--}}
-                            {{--<ul class="tags-list clearfix">--}}
-                                {{--<li><a>Beef</a></li>--}}
-                                {{--<li><a>Pork</a></li>--}}
-                                {{--<li><a>Chicken</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div class="sidebar-widget sidebar-tags">
+                        <div class="widget-title">
+                            <h3>Product tags</h3>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="tags-list clearfix">
+                                <li><a>Beef</a></li>
+                                <li><a>Pork</a></li>
+                                <li><a>Chicken</a></li>
+                                <li><a>Sausage</a></li>
+                                <li><a>Lamb</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 content-side">
                 <div class="our-shop">
                     <div class="row clearfix">
                         @foreach($product as $item)
+                            <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
 
                             <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
                                 <form action="{{url('more_details')}}" method="post">
@@ -66,7 +69,7 @@
                                     <div class="shop-block-one">
                                         <div class="inner-box">
                                             <figure class="image-box">
-                                                <img src="{{$item->main_image}}" alt="">
+                                                <img src="{{$item->main_image}}" alt="" style="border: grey  solid 2px">
                                                 <ul class="list clearfix">
                                                     <li><a class="add_cart flaticon-cart" name="1" id="{{$item->id}}"></a></li>
 

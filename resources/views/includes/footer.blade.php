@@ -35,7 +35,7 @@
                             </div>
                             <div class="widget-content">
                                 <p>Stay Updated on all that’s new add noteworthy</p>
-                                <form action="contact.html" method="post" class="newsletter-form">
+                                <form action="{{url('sendEmail')}}" method="post" class="newsletter-form">
                                     <div class="form-group">
                                         <input type="email" name="email" placeholder="Email" required="">
                                         <button type="submit"><i class="flaticon-paper-plane-1"></i></button>
@@ -81,6 +81,10 @@
 
 <script type="text/javascript" src="assets/js/propeller.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
+<script src="assets/js/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner();
+</script>
 {{--<script src="assets/js/nouislider.js"></script>--}}
 <script>
 

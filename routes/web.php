@@ -49,6 +49,8 @@ Route::get('add_cart','ShopController@add_cart')->name('add_cart');
 Route::get('carts','ShopController@carts')->name('carts');
 Route::get('purchase','ShopController@purchase')->name('purchase');
 Route::get('change_quantity','ShopController@change_quantity')->name('change_quantity');
+Route::get('remove','ShopController@remove')->name('remove');
+Route::post('sendEmail','ShopController@sendEmail')->name('sendEmail');
 
 
 Route::post('more_details','ShopController@more_details')->name('more_details');

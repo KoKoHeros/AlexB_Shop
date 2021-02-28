@@ -1,6 +1,5 @@
 @include('includes.header')
 <!-- shop-details -->
-
 <section class="shop-details sec-pad">
     <div class="auto-container" style="text-align: justify">
         @foreach($product_detail as $item)
@@ -9,13 +8,13 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                         <div class="slider-inner">
                             <div class="bxslider">
-                                <div class="slider-content">
+                                <div class="slider-content" id="image_area">
                                     <div class="slider-pager">
                                         <ul class="thumb-box">
 
 
                                             <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img style="width:134px;height: 136px;"  src="{{$item -> sub_image1}}" alt=""></figure></a>
+                                                <figure><img  id="sub_image1" style="width:134px;height:136px;border: silver 2px solid"  src="{{$item -> sub_image1}}" alt=""></figure>
                                             </li>
                                             {{--<li>--}}
                                                 {{--<a data-slide-index="0"  class="active">--}}
@@ -24,18 +23,18 @@
                                             {{--</li>--}}
                                             <li>
                                                 <a data-slide-index="1">
-                                                    <figure><img  id="sub_image2" style="width:134px;height: 136px;"  src="{{$item -> sub_image2}}" alt="" onclick="changeborder(this)"></figure>
+                                                    <figure><img  id="sub_image2" style="width:134px;height: 136px;border: silver 2px solid"  src="{{$item -> sub_image2}}" alt=""></figure>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a data-slide-index="2"><figure><img  style="width:134px;height: 136px;" id="sub_image3" src="{{$item -> sub_image3}}" alt="" onclick="changeborder(this)"></figure></a>
+                                                <a data-slide-index="2"><figure><img  style="width:134px;height: 136px;border: silver 2px solid" id="sub_image3" src="{{$item -> sub_image3}}" alt=""></figure></a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="product-image">
-                                        <figure class="image">
+                                        <figure class="image"  style="border: solid lightgrey 2px">
                                             <a>
-                                                <img class="main_image" style="width:382px;height: 476px;" src="{{$item -> main_image}}" alt="No Image">
+                                                <img class="main_image" style="width:382px;height: 476px; display: inline-block;  max-width: 100%;transition-delay: .1s; transition-timing-function: ease-in-out;transition-duration: .7s; transition-property: all;" src="{{$item -> main_image}}" alt="No Image">
                                             </a>
                                         </figure>
                                     </div>
@@ -66,17 +65,25 @@
                                     <li>Category:</li>
                                     <li><a>{{$item -> category}}</a></li>
                                 </ul>
-                                {{--<ul class="tags list clearfix">--}}
-                                    {{--<li>Tags:</li>--}}
-                                    {{--<li><a>{{$item->tags}}</a></li>--}}
-                                    {{--<li><a href="single-shop-1.html">Sausage</a>,</li>--}}
-                                    {{--<li><a href="single-shop-1.html">Lamb</a></li>--}}
-                                {{--</ul>--}}
+                                <ul class="tags list clearfix">
+                                    <li>Inventory:</li>
+                                    <li><a></a></li>
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </ul>
+                                <ul class="tags list clearfix">
+                                    <li>Tags:</li>
+                                    <li><a href="">Food</a>,</li>
+                                    <li><a href="">Sausage</a>,</li>
+                                    <li><a href="">Lamb</a></li>
+                                </ul>
                             </div>
                             <div class="othre-options clearfix">
                                 <div class="item-quantity">
-                                    <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;"  type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
+                                    <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;text-align:center;width: 50px;height:50px;margin-right:15px;outline:red" type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
                                 </div>
+                                <textarea name="product_id" id="product_id" style="display: none">{{$item->product_id}}</textarea>
+
                                 <div class="btn-box" style="text-align: center;padding:0px;margin: auto"><button class="add_cart theme-btn" name="1" id="{{$item->id}}">Add to cart</button></div>
                             </div>
                         </div>
@@ -132,7 +139,6 @@
                                     {{--</ul>--}}
                                 {{--</figure>--}}
                                 {{--<div class="lower-content">--}}
-                                    {{--<textarea name="product_id" id="product_id" style="display: none">{{$related_product->id}}</textarea>--}}
 
                                     {{--<h6><a href="detail.blade.php">{{$related_product->name}}</a></h6>--}}
                                     {{--<ul class="rating clearfix">--}}

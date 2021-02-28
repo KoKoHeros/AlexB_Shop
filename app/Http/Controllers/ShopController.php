@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Cart;
 use App\Check;
+use App\Email;
 use App\FeaturedProduct;
 use App\Order;
 use Illuminate\Support\Arr;
@@ -98,17 +99,17 @@ class ShopController extends Controller
         $quantity = $_GET['quantity'];
         $newCart = new Cart();
         $check = 0;
-        $session = Session::get('cart');
+        $session = Cart::all();
         if($session){
             foreach ($session as $item)
             {
-                if($item==$product_id){
+                if($item->product_id == $product_id){
                     $check = 1;
                 }
             }
         }
         if($check == 1){
-            $cart = Cart::where('id',$product_id)->first();
+            $cart = Cart::where('product_id',$product_id)->first();
             $cart-> quantity = $quantity+$cart-> quantity;
             $cart -> save();
             return 'This product is successfully added in cart.';
@@ -135,38 +136,114 @@ class ShopController extends Controller
             return 'This product is successfully added in cart.';
         }
     }
+//    public function add_cart(Request $request){
+//        $product_id = $_GET['product_id'];
+//        $quantity = $_GET['quantity'];
+//        $newCart = new Cart();
+//        $check = 0;
+//        $session = Session::get('cart');
+//        if($session){
+//            foreach ($session as $item)
+//            {
+//                if($item==$product_id){
+//                    $check = 1;
+//                }
+//            }
+//        }
+//        if($check == 1){
+//            $cart = Cart::where('id',$product_id)->first();
+//            $cart-> quantity = $quantity+$cart-> quantity;
+//            $cart -> save();
+//            return 'This product is successfully added in cart.';
+//        }
+//        else
+//        {
+//            $request->session()->push('cart', $product_id);
+//            $cart = Product::where('id',$product_id)->first();
+//            $newCart-> product_id = $cart -> id;
+//            $newCart-> name  = $cart -> name;
+//            $newCart-> review = $cart -> review;
+//            $newCart-> review_written_user_client = $cart -> review_written_user_client;
+//            $newCart-> review_mark = $cart -> review_mark;
+//            $newCart-> price = $cart -> price;
+//            $newCart-> quantity = $quantity;
+//            $newCart-> description = $cart -> description;
+//            $newCart-> category = $cart -> category;
+////                    $newCart-> tags = $cart -> tags;
+//            $newCart-> main_image = $cart -> main_image;
+//            $newCart-> sub_image1 = $cart -> sub_image1;
+//            $newCart-> sub_image2 = $cart -> sub_image2;
+//            $newCart-> sub_image3 = $cart -> sub_image3;
+//            $newCart -> save();
+//            return 'This product is successfully added in cart.';
+//        }
+//    }
 
     function carts(Request $request){
-        $cart_list = Session::get('cart');
-        if($cart_list){
-            foreach ($cart_list as $list){
-                $newCart = new Cart();
-                $carts = Product::where('id',$list)->get();
-                foreach ($carts as $cart){
-
-
-                    if(Cart::where('product_id',$cart->id)->first())continue;
-                    $newCart-> product_id = $cart -> id;
-                    $newCart-> name  = $cart -> name;
-                    $newCart-> review = $cart -> review;
-                    $newCart-> review_written_user_client = $cart -> review_written_user_client;
-                    $newCart-> review_mark = $cart -> review_mark;
-                    $newCart-> price = $cart -> price;
-                    $newCart->quantity = 1;
-                    $newCart-> description = $cart -> description;
-                    $newCart-> category = $cart -> category;
-//                    $newCart-> tags = $cart -> tags;
-                    $newCart-> main_image = $cart -> main_image;
-                    $newCart-> sub_image1 = $cart -> sub_image1;
-                    $newCart-> sub_image2 = $cart -> sub_image2;
-                    $newCart-> sub_image3 = $cart -> sub_image3;
-                    $newCart -> save();
-                }
-            }
+        $page = $request -> page;
+        $carts = Cart::all();
+        $total_amount = 0;
+        foreach ($carts as $item){
+            $total_amount = $total_amount + $item->quantity * $item -> price;
         }
-//        $carts = Cart::where('client_email',email)->paginage(9);
-        $carts = Cart::paginate(12);
-        return view('carts',compact('carts'));
+        $carts = Cart::paginate(10);
+
+        return view('carts',compact('carts','page','total_amount'));
+    }
+//    function carts(Request $request){
+//        $cart_list = Session::get('cart');
+//        $page = $request -> page;
+//        if($cart_list){
+//            foreach ($cart_list as $list){
+//                $newCart = new Cart();
+//                $carts = Product::where('id',$list)->get();
+//                foreach ($carts as $cart){
+//
+//
+//                    if(Cart::where('product_id',$cart->id)->first())continue;
+//                    $newCart-> product_id = $cart -> id;
+//                    $newCart-> name  = $cart -> name;
+//                    $newCart-> review = $cart -> review;
+//                    $newCart-> review_written_user_client = $cart -> review_written_user_client;
+//                    $newCart-> review_mark = $cart -> review_mark;
+//                    $newCart-> price = $cart -> price;
+//                    $newCart->quantity = 1;
+//                    $newCart-> description = $cart -> description;
+//                    $newCart-> category = $cart -> category;
+////                    $newCart-> tags = $cart -> tags;
+//                    $newCart-> main_image = $cart -> main_image;
+//                    $newCart-> sub_image1 = $cart -> sub_image1;
+//                    $newCart-> sub_image2 = $cart -> sub_image2;
+//                    $newCart-> sub_image3 = $cart -> sub_image3;
+//                    $newCart -> save();
+//                }
+//            }
+//        }
+////        $carts = Cart::where('client_email',email)->paginage(9);
+//        $carts = Cart::all();
+//        $total_amount = 0;
+//        foreach ($carts as $item){
+//            $total_amount = $total_amount + $item->quantity * $item -> price;
+//        }
+//        $carts = Cart::paginate(10);
+//
+//        return view('carts',compact('carts','page','total_amount'));
+//    }
+
+    public function remove(){
+        $product_id = $_GET['product_id'];
+//        $session = Session::get('cart');
+//        if($session){
+//        foreach ($session as $item) {
+//            if ($item == $product_id) {
+//                unset($session[$item]);
+//                $session->pull();
+////                return redirect()->back();
+//            }
+//        }
+//        }
+        Cart::where('product_id',$product_id) -> delete();
+        return 'Successfully removed from carts.';
     }
 
     public function purchase()
@@ -197,12 +274,17 @@ class ShopController extends Controller
     function change_quantity(Request $request){
         $product_id = $_GET['product_id'];
         $quantity = $_GET['quantity'];
-        $price = $_GET['price'];
         $carts = Cart::where('product_id',$product_id)->first();
         $carts->quantity = $quantity;
         $carts->save();
-        return $product_id*$quantity;
+        return $quantity;
     }
-
+    function sendEmail(Request $request){
+        $email = $request -> email;
+        $newemail = new Email();
+        $newemail -> email = $email;
+        $newemail -> save();
+        return redirect() -> back();
+    }
 }
 

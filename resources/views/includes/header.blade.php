@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="assets/css/propeller.min.css">
     <link href="assets/css/nouislider.css">
     <link href="assets/css/range-slider.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     @toastr_css
 
     <meta name="google-signin-scope" content="profile email">
@@ -148,8 +149,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{count(collect(Session::get('cart')))}}</span></a></li>
-                            {{--<li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{sizeof(\App\Cart::all())}}</span></a></li>--}}
+{{--                            <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{count(collect(Session::get('cart')))}}</span></a></li>--}}
+                            <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{sizeof(\App\Cart::all())}}</span></a></li>
                         </ul>
                     </div>
                 </div>

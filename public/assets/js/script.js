@@ -422,6 +422,11 @@
         })(jQuery);
     });
 
+
+
+
+
+
 	/* ==========================================================================
 	 When document is Scrollig, do
 	 ========================================================================== */
@@ -442,43 +447,49 @@
 
 $(document).ready(function() {
     $("#sub_image1").click(function(el) {
-        image_src = $('#sub_image1').prop('src');
-        $('.main_image').attr("src", image_src);
+        $image_src = $('#sub_image1').prop('src');
+        $('.main_image').attr("src", $image_src);
+        // $('.product-image').fadeIn(2000)
+        document.getElementById('sub_image1').style.border = "solid red 2px";
+        document.getElementById('sub_image3').style.border = "solid silver 2px";
+        document.getElementById('sub_image2').style.border = "solid silver 2px";
     });
 });
 
-function changeborder1(el) {
-        el.style.border = "1px solid blue";
-    // el.style.border = "2px solid red";
-}
 
 $(document).ready(function() {
     $("#sub_image2").click(function() {
-        image_src = $('#sub_image2').prop('src');
-        $('.main_image').attr("src", image_src);
+        $image_src = $('#sub_image2').prop('src');
+        $('.main_image').attr("src", $image_src);
+        document.getElementById('sub_image2').style.border = "solid red 2px";
+        document.getElementById('sub_image1').style.border = "solid silver 2px";
+        document.getElementById('sub_image3').style.border = "solid silver 2px";
     });
 });
 
 $(document).ready(function() {
     $("#sub_image3").click(function() {
-        image_src = $('#sub_image3').prop('src');
-        $('.main_image').attr("src", image_src);
-        $("sub_image3").toggleClass('active');
+        $image_src = $('#sub_image3').prop('src');
+        $('.main_image').attr("src", $image_src);
+        document.getElementById('sub_image3').style.border = "solid red 2px";
+        document.getElementById('sub_image1').style.border = "solid silver 2px";
+        document.getElementById('sub_image2').style.border = "solid silver 2px";
     });
 });
 
 $(document).ready(function() {
     $(".add_cart").click(function(event) {
-        product_id = event.target.id;
-        quantity = event.target.name;
+        $product_id = event.target.id;
+        $quantity = event.target.name;
+        // alert($quantity)
         $.ajax({
             url: "/add_cart",
             type:'get',
             // url: '/add_cart',
             // cache: false,
             data:{
-                product_id:product_id,
-                quantity:quantity
+                product_id:$product_id,
+                quantity:$quantity
             },
             success: function(result){
                 if(result){
@@ -531,30 +542,78 @@ $('#amount').click(function () {
     $(this).click='disable';
 })
 
+var $inputChangeClass = $(".quantity-spinner")
+var $classInput = $(".quantity-spinner")
+$classInput.on("input", function() {
+    $inputChangeClass.prop("class", this.value);
 
-
-$(document).ready(function() {
-    $(".quantity-spinner").click(function (event) {
-        product_id = event.target.id;
-        if (event.target.value < 1) {
-            event.target.value = 1;
+        // alert(this.value+','+this.id)
+    $amount = event.target.value * event.target.alt;
+    event.target.name = $amount;
+    $.ajax({
+        url: "/change_quantity",
+        type: 'get',
+        // cache: false,
+        data: {
+            product_id: this.id,
+            quantity: this.value,
+            // price: event.target.alt
+        },
+        success: function (result) {
+          // alert(result)
+            this.value = result;
+            // location.reload();
         }
-        amount = event.target.value * event.target.alt;
-        event.target.name = amount;
-        $.ajax({
-            url: "/change_quantity",
-            type: 'get',
-            // cache: false,
-            data: {
-                product_id: product_id,
-                quantity: event.target.value,
-                price: event.target.alt
-            },
-            success: function (result) {
-            }
-        });
     });
-});
+
+
+
+})
+
+// $(document).ready(function() {
+//     $(".btn-increment").click(function (event) {
+//         var currentValue = $(element).val()
+//         // $('#spinner-value').html(newVal);
+//
+//         if (event.target.value < 1) {
+//             event.target.value = 1;
+//         }
+//         $amount = event.target.value * event.target.alt;
+//         event.target.name = $amount;
+//         $.ajax({
+//             url: "/change_quantity",
+//             type: 'get',
+//             // cache: false,
+//             data: {
+//                 product_id: $product_id,
+//                 quantity: event.target.value,
+//                 price: event.target.alt
+//             },
+//             success: function (result) {
+//             }
+//         });
+//     });
+//     $(".btn-decrement").click(function (event) {
+//         $product_id = event.target.id;
+//         if (event.target.value < 1) {
+//             event.target.value = 1;
+//         }
+//         $amount = event.target.value * event.target.alt;
+//         event.target.name = $amount;
+//         $.ajax({
+//             url: "/change_quantity",
+//             type: 'get',
+//             // cache: false,
+//             data: {
+//                 product_id: $product_id,
+//                 quantity: event.target.value,
+//                 price: event.target.alt
+//             },
+//             success: function (result) {
+//             }
+//         });
+//     });
+// });
 
 
     function change_quantity(value) {
@@ -563,4 +622,22 @@ $(document).ready(function() {
         $('.add_cart').attr("name", value);
 
     }
-
+$(document).ready(function() {
+$(".remove_button").click(function (event) {
+    $product_id = event.target.title;
+    $.ajax({
+        url: "/remove",
+        type: 'get',
+        // cache: false,
+        data: {
+            product_id: $product_id,
+        },
+        success: function (result) {
+            $('#alert_button').attr("data-message", result);
+            $('#alert_button').attr("data-type", "success");
+            document.getElementById("alert_button").click();
+            location.reload();
+        }
+    });
+});
+});
