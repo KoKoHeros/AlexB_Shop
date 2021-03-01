@@ -194,7 +194,7 @@
         <div  class="container" style="padding-left:20%; padding-right: 20%">
             <form action="{{url('saveproduct')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div style="padding: 5%"><h1 style="text-align: center;font-weight: bold;">Products</h1></div>
+                <div style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Products</h1></div>
                 <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
                 <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
                 <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
@@ -213,10 +213,10 @@
                         <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
                     </select>
                 </div>
-                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>
-                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image1"></div>
-                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image2"></div>
-                <div><label style="width: 50%">SubImage3:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
+                <div><label style="width: 50%">Main image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
                 <div style="margin-top: 5%" class="text-center"><button type="submit" class="btn btn-primary" >Save</button></div>
             </form>
         </div>
@@ -225,7 +225,7 @@
         <div class="container" style="padding-left:20%; padding-right: 20%">
             <form action="{{url('savefeaturedproduct')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div  style="padding: 5%"><h1 style="text-align: center;font-weight: bold;">Featured Products</h1></div>
+                <div  style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Featured Products</h1></div>
                 <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
                 <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
                 <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
@@ -244,10 +244,10 @@
                         <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
                     </select>
                 </div>
-                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>
-                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image1"></div>
-                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image2"></div>
-                <div><label style="width: 50%">SubImage3:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
+                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
                 <div class="text-center" style="margin-top: 5%"><button type="submit" class="btn btn-primary">Save</button></div>
             </form>
         </div>

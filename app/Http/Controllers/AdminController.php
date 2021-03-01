@@ -19,14 +19,13 @@ class AdminController extends Controller
         $description = $request -> description;
         $category = $request -> category;
 //        $tags = $request -> tags;
-        if(!$name or !$price or !$description or !$category or $request->main_image==null or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
+        if(!$name or !$price or !$description or !$category  or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
         {
             toastr()->warning('Please input correctly in all forms!');
 
             return redirect()->back();
         }
 
-        $main_image_path = $request->main_image->store('uploads');
         $sub_image_path1 = $request->sub_image1->store('uploads');
         $sub_image_path2 = $request->sub_image2->store('uploads');
         $sub_image_path3 = $request->sub_image3->store('uploads');
@@ -38,7 +37,7 @@ class AdminController extends Controller
         $product -> description = $description;
 //        $product -> tags = $tags;
         $product -> category = $category;
-        $product -> main_image = $main_image_path;
+//        $product -> main_image = $main_image_path;
         $product -> sub_image1 = $sub_image_path1;
         $product -> sub_image2 = $sub_image_path2;
         $product -> sub_image3 = $sub_image_path3;
@@ -53,14 +52,14 @@ class AdminController extends Controller
         $description = $request -> description;
         $category = $request -> category;
 //        $tags = $request -> tags;
-        if(!$name or !$price or !$description or !$category or $request->main_image==null or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
+        if(!$name or !$price or !$description or !$category or $request->sub_image1==null or $request->sub_image2==null or $request->sub_image3==null)
         {
-            toastr()->warning('Please input correctly in all forms!');
+            toastr()->warning('Please input correctly in all Forms!');
 
             return redirect()->back();
         }
 
-        $main_image_path = $request->main_image->store('uploads');
+//        $main_image_path = $request->main_image->store('uploads');
         $sub_image_path1 = $request->sub_image1->store('uploads');
         $sub_image_path2 = $request->sub_image2->store('uploads');
         $sub_image_path3 = $request->sub_image3->store('uploads');
@@ -72,7 +71,7 @@ class AdminController extends Controller
         $product -> description = $description;
 //        $product -> tags = $tags;
         $product -> category = $category;
-        $product -> main_image = $main_image_path;
+//        $product -> main_image = $main_image_path;
         $product -> sub_image1 = $sub_image_path1;
         $product -> sub_image2 = $sub_image_path2;
         $product -> sub_image3 = $sub_image_path3;

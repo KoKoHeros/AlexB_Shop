@@ -30,16 +30,14 @@
                         <div class="widget-title">
                             <h3>Filter</h3>
                         </div>
-                        <div class="range-slider clearfix">
-                            <div class="price-range-slider"></div>
+                        <div class="range-slider clearfix" style="width: 100%">
+                            <div class="price-range-slider  container-fluid"></div>
                             <div class="clearfix">
-                                <div class="title"></div>
+                                <div class="title" ></div>
                                 <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
                             </div>
                         </div>
                     </div>
-
-
 
                     <div class="sidebar-widget sidebar-tags">
                         <div class="widget-title">
@@ -69,7 +67,7 @@
                                     <div class="shop-block-one">
                                         <div class="inner-box">
                                             <figure class="image-box">
-                                                <img src="{{$item->main_image}}" alt="" style="border: grey  solid 2px">
+                                                <img src="{{$item->sub_image1}}" alt="" >
                                                 <ul class="list clearfix">
                                                     <li><a class="add_cart flaticon-cart" name="1" id="{{$item->id}}"></a></li>
 

@@ -82,25 +82,11 @@
 <script type="text/javascript" src="assets/js/propeller.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
 <script src="assets/js/bootstrap-input-spinner.js"></script>
+{{--<script src="assets/js/freshslider.1.0.0.js"></script>--}}
 <script>
     $("input[type='number']").inputSpinner();
 </script>
 {{--<script src="assets/js/nouislider.js"></script>--}}
-<script>
-
-    // multiple range slider with default tooltip open
-    var pmdSliderRangeTooltipBottom = document.getElementById('pmd-slider-range-tooltip-bottom');
-    noUiSlider.create(pmdSliderRangeTooltipBottom, {
-        start: [10, 50],
-        connect: true,
-        tooltips: [ wNumb({ decimals: 0 }), wNumb({ decimals: 0 }) ],
-        range: {
-            'min': 0,
-            'max': 100
-        }
-    });
-
-</script><!-- main-js -->
 @jquery
 @toastr_js
 @toastr_render

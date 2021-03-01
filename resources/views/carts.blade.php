@@ -111,7 +111,7 @@
                     @if($page==0)@php($page=1)@endif
                     <div class="row">
                         <div class="table-responsive card pmd-card">
-                            <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
+                            <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="5000" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
                             @php($num = ($page -1)* 10 + 1)
                             <table class="table pmd-table">
                                 <thead>
@@ -128,7 +128,7 @@
                                 @foreach($carts as $item)
                                     <tr>
                                         <td data-title="No" style="text-align: center;font-size:large;">{{$num}}</td>
-                                        <td data-title="Ticket No" style="text-align: center;font-size:large;"><img src="{{$item -> main_image}}" style="width: 100px;height: auto"></td>
+                                        <td data-title="Ticket No" style="text-align: center;font-size:large;"><img class="carts_image" src="{{$item -> sub_image1}}" style="border:1px silver solid;width: 100px;height: auto"></td>
                                         <td data-title="Browser Name"  style="text-align: center">{{$item -> price}}</td>
                                         <td data-title="Month"  style="text-align: center;width: 150px">
                                             <input class="quantity-spinner"  style="width: 50px;height: 50px;" type="number" alt="{{$item->price}}" id="{{$item->product_id}}" value="{{$item -> quantity}}">

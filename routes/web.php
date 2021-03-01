@@ -73,3 +73,6 @@ Route::get('cancel-payment', 'PaymentsController@paymentCancel')->name('cancel.p
 Route::get('payment-success', 'PaymentsController@paymentSuccess')->name('success.payment');
 
 
+
+//Auth::routes();
+

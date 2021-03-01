@@ -37,4 +37,11 @@ return [
         'sandbox' => env('PAYPAL_SANDBOX'),
     ],
 
+
+    'google' => [
+        'client_id'     => env('363405147790-ufaj9iena6poqmoinr6dms75ajl6hc79.apps.googleusercontent.com'),
+        'client_secret' => env('GL_SECRET'),
+        'redirect'      => env('APP_URL') . '/oauth/google/callback',
+    ],
+
 ];
