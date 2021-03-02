@@ -19,9 +19,10 @@ class ShopController extends Controller
     function more_details(Request $request){
         $product_id = $request -> product_id;
         $product_detail = Product::where('id',$product_id)->get();
-//        foreach ($product_detail as $product_details ){
+//      foreach ($product_detail as $product_details )
+//      {
 //            $related_products = Product::where('tags',$product_details->tags)->get();
-//        }
+//      }
         return view('detail',compact('product_detail'));
     }
 
@@ -43,7 +44,6 @@ class ShopController extends Controller
         $product = FeaturedProduct::all();
         return view('home',compact('product'));
     }
-
 
     function Fruit_Vegetables(){
         $product = Product::where('category','Fruit & Vegetables')->paginate(12);
@@ -104,7 +104,6 @@ class ShopController extends Controller
         if($session){
             foreach ($session as $item)
             {
-
                 if($item->product_id == $product_id){//you have to compare with client_email from session too.
                     $check = 1;
                 }
@@ -152,7 +151,6 @@ class ShopController extends Controller
         return view('carts',compact('carts','page','total_amount'));
     }
 
-
     public function remove(){
         $product_id = $_GET['product_id'];
         Cart::where('product_id',$product_id) -> delete();
@@ -187,7 +185,6 @@ class ShopController extends Controller
 //        }
     }
 
-
     function change_filter(Request $request){
         $mins = $_GET['mins'];
         $maxs = $_GET['maxs'];
@@ -204,14 +201,11 @@ class ShopController extends Controller
                 $filters -> sub_image2 = $item -> sub_image2;
                 $filters -> sub_image3 = $item -> sub_image3;
                 $filters -> save();
-
             }
         }
-        $product = Filter::where('product_id',1)->paginate(16);
+        $product = Filter::paginate(16);
 //        return response()->json(['shop' => $products]);
-        return view('shop')->with(['product' => $product]);
-
-//        return json_encode($products);
+        return view('shop')->with(['products' => $product]);
     }
 
 

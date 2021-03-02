@@ -58,6 +58,7 @@
             <div class="col-lg-9 col-md-9 col-sm-9 content-side">
                 <div class="our-shop">
                     <div class="row clearfix">
+                        @if(request()->is('shop'))
                         @foreach($product as $item)
                             <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
 
@@ -67,15 +68,19 @@
                                     <div class="shop-block-one">
                                         <div class="inner-box">
                                             <figure class="image-box">
+                                                <div class="text-center container" style="text-align: center;width:100%;height: auto;padding: 0px;margin: auto">
                                                 <img src="{{$item->sub_image1}}" alt="" >
-                                                <ul class="list clearfix">
-                                                    <li><a class="add_cart flaticon-cart" name="1" id="{{$item->id}}"></a></li>
+                                                </div>
+                                                <div class="text-center container" style="text-align: center;width:100%;height: auto;padding: 0px;margin: auto">
+                                                    <ul class="list clearfix">
+                                                    <li><a class="add_cart flaticon-cart" style="padding: 2px" name="1" id="{{$item->id}}"></a></li>
 
                                                     <li>
-                                                        <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;text-align:center;width: 50px;height:50px;margin-right:15px;outline:red" type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
+                                                        <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;text-align:center;width: 50px;height:50px;outline:red" type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
                                                     </li>
-                                                    <li><button type="submit" style="width: 100px">More</button></li>
+                                                    <li><button type="submit" style="width: 100px;padding: 0px;margin: 10px">More</button></li>
                                                 </ul>
+                                                </div>
                                             </figure>
                                             <div class="lower-content" style="text-align: justify;">
                                                 <textarea name="product_id" id="product_id" style="display: none">{{$item->id}}</textarea>
@@ -88,12 +93,54 @@
 
                             </div>
                         @endforeach
-
-                        <div class="d-flex container">
-                            <div class="mx-auto">
-                                {!! $product->links("pagination::bootstrap-4") !!}
+                            <div class="d-flex container">
+                                <div class="mx-auto">
+                                    {!! $product->links("pagination::bootstrap-4") !!}
+                                </div>
                             </div>
-                        </div>
+                        @endif
+                        @if(request()->is('change_quantity'))
+
+                                @foreach($products as $item)
+                                    <button style="display: none" type="button"  id="alert_button" data-positionX="right" data-positionY="top"  data-duration="2500" data-effect="fadeInUp" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                                        <form action="{{url('more_details')}}" method="post">
+                                            @csrf
+                                            <div class="shop-block-one">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <div class="text-center container" style="text-align: center;width:100%;height: auto;padding: 0px;margin: auto">
+                                                            <img src="{{$item->sub_image1}}" alt="" >
+                                                        </div>
+                                                        <div class="text-center container" style="text-align: center;width:100%;height: auto;padding: 0px;margin: auto">
+                                                            <ul class="list clearfix">
+                                                            <li>
+                                                                <a class="add_cart flaticon-cart" name="1" id="{{$item->id}}"></a></li>
+                                                            <li>
+                                                                <input class="quantity-spinner" id="product_quantity" style="background-color: #fae8e8;text-align:center;width: 50px;height:50px;margin-right:15px;outline:red" type="text" value="1" name="quantity" onchange="change_quantity(this.value)">
+                                                            </li>
+                                                            <li><button type="submit" style="width: 100px">More</button></li>
+                                                        </ul>
+                                                        </div>
+                                                    </figure>
+                                                    <div class="lower-content" style="text-align: justify;">
+                                                        <textarea name="product_id" id="product_id" style="display: none">{{$item->id}}</textarea>
+                                                        <h6><button type="submit" style="font-weight:bold;background-color: white">{{$item -> name}}</button></h6>
+                                                        <span class="price">$ {{$item -> price}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                @endforeach
+                                    <div class="d-flex container">
+                                        <div class="mx-auto">
+                                            {!! $products->links("pagination::bootstrap-4") !!}
+                                        </div>
+                                    </div>
+                        @endif
+
 
                         {{--<div>{{ $product->links() }}</div>--}}
                     </div>

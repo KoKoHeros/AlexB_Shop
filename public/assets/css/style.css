@@ -2301,7 +2301,7 @@ div#mCSB_1_container{
 .shop-block-one .inner-box .image-box .list li{
   position: relative;
   display: inline-block;
-  float: left;
+  /*float: left;*/
 }
 
 .shop-block-one .inner-box .image-box .list li:first-child a{

@@ -168,8 +168,8 @@
 
                     <div class="d-flex container" id="google_signin" style="margin-top: 50px;display: none">
                         <div class="mx-auto">
-                            <div id="my-signin2" style="display: block"></div>
-                            <div class="g-signin2" id="my-signin2" data-onsuccess="onSignIn" style="display: block"></div>
+                            <div id="my-signin2" style="display: none"></div>
+                            <div class="g-signin2" id="my-signin2" data-onsuccess="onSignIn" style="display: none"></div>
 
                             <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
                         </div>
