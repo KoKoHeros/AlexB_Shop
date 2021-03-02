@@ -36,6 +36,7 @@
                             <div class="widget-content">
                                 <p>Stay Updated on all that’s new add noteworthy</p>
                                 <form action="{{url('sendEmail')}}" method="post" class="newsletter-form">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="email" name="email" placeholder="Email" required="">
                                         <button type="submit"><i class="flaticon-paper-plane-1"></i></button>
@@ -48,13 +49,13 @@
             </div>
         </div>
         <div class="footer-bottom clearfix">
-            <div class="copyright pull-left"><h5>&copy;2020 CopyRight <a href="index.html">Example</a>. All rights reserved.</h5></div>
+            <div class="copyright pull-left"><h5>&copy;2020 CopyRight <a href="">Example</a>. All rights reserved.</h5></div>
             <ul class="footer-nav pull-right clearfix">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">AboutUs</a></li>
-                <li><a href="index.html">Shop</a></li>
-                <li><a href="index.html">Pricing Plan</a></li>
-                <li><a href="index.html">Faq</a></li>
+                <li><a href="{{url('home')}}">Home</a></li>
+                <li><a href="{{url('about')}}">AboutUs</a></li>
+                <li><a href="{{url('shop')}}">Shop</a></li>
+                <li><a href="{{url('pricing')}}">Pricing Plan</a></li>
+                <li><a href="{{url('faq')}}">Faq</a></li>
             </ul>
         </div>
     </div>
