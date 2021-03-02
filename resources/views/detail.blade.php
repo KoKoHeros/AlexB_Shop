@@ -14,13 +14,13 @@
                                             <div class="slider-pager">
                                                 <ul class="thumb-box">
                                                     <li>
-                                                        <a class="active" data-slide-index="0" href="#"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;" alt=""></figure></a>
+                                                        <a class="active" data-slide-index="0"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;border-bottom: solid 4px red" alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="1" href="#"><figure><img src="{{$item -> sub_image2}}"  style="width: 134px;height: 136px;" alt=""></figure></a>
+                                                        <a data-slide-index="1"><figure><img src="{{$item -> sub_image2}}"  style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid" alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="2" href="#"><figure><img src="{{$item -> sub_image3}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a data-slide-index="2"><figure><img src="{{$item -> sub_image3}}" style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid"  alt=""></figure></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -32,13 +32,13 @@
                                             <div class="slider-pager">
                                                 <ul class="thumb-box">
                                                     <li>
-                                                        <a class="active" data-slide-index="0" href="#"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a class="active" data-slide-index="0"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid"  alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="1" href="#"><figure><img src="{{$item -> sub_image2}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a data-slide-index="1"><figure><img src="{{$item -> sub_image2}}" style="width: 134px;height: 136px;border-bottom: solid 4px red"  alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="2" href="#"><figure><img src="{{$item -> sub_image3}}"  style="width: 134px;height: 136px;" alt=""></figure></a>
+                                                        <a data-slide-index="2"><figure><img src="{{$item -> sub_image3}}"  style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid" alt=""></figure></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -50,13 +50,13 @@
                                             <div class="slider-pager">
                                                 <ul class="thumb-box">
                                                     <li>
-                                                        <a class="active" data-slide-index="0" href="#"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a class="active" data-slide-index="0"><figure><img src="{{$item -> sub_image1}}" style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid"  alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="1" href="#"><figure><img src="{{$item -> sub_image2}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a data-slide-index="1"><figure><img src="{{$item -> sub_image2}}" style="width: 134px;height: 136px;border-bottom: #f8f9fa 5px solid"  alt=""></figure></a>
                                                     </li>
                                                     <li>
-                                                        <a data-slide-index="2" href="#"><figure><img src="{{$item -> sub_image3}}" style="width: 134px;height: 136px;"  alt=""></figure></a>
+                                                        <a data-slide-index="2"><figure><img src="{{$item -> sub_image3}}" style="width: 134px;height: 136px;border-bottom: solid 4px red"  alt=""></figure></a>
                                                     </li>
                                                 </ul>
                                             </div>

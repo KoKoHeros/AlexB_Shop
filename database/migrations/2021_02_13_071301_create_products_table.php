@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('category');
             $table->string('tags');
+            $table->string('inventory');
             $table->string('main_image');
             $table->string('sub_image1');
             $table->string('sub_image2');

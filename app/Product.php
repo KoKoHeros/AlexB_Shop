@@ -10,6 +10,8 @@ class Product extends Model
         'name',
         'price',
         'description',
+        'tags',
+        'inventory',
         'category',
         'main_image',
         'sub_image1',

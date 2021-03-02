@@ -79,7 +79,7 @@
                                             </figure>
                                             <div class="lower-content" style="text-align: justify;">
                                                 <textarea name="product_id" id="product_id" style="display: none">{{$item->id}}</textarea>
-                                                <h6><button type="submit" style="font-weight:bold;background-color: #f8f9fa">{{$item -> name}}</button></h6>
+                                                <h6><button type="submit" style="font-weight:bold;background-color: white">{{$item -> name}}</button></h6>
                                                 <span class="price">$ {{$item -> price}}</span>
                                             </div>
                                         </div>
