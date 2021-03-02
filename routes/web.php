@@ -51,6 +51,7 @@ Route::get('purchase','ShopController@purchase')->name('purchase');
 Route::get('change_quantity','ShopController@change_quantity')->name('change_quantity');
 Route::get('remove','ShopController@remove')->name('remove');
 Route::post('sendEmail','ShopController@sendEmail')->name('sendEmail');
+Route::get('change_filter','ShopController@change_filter')->name('change_filter');
 
 
 Route::post('more_details','ShopController@more_details')->name('more_details');

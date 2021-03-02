@@ -140,17 +140,17 @@
                                         <li class="panel-outer">
                                             <div class="form-container">
                                                 {{--<form method="post" action="blog.html">--}}
-                                                    <div class="form-group">
-                                                        <input type="search" name="field-name" value="" placeholder="Search...." required="">
-                                                        <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <input type="search" name="field-name" value="" placeholder="Search...." required="">
+                                                    <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                                </div>
                                                 {{--</form>--}}
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-{{--                            <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{count(collect(Session::get('cart')))}}</span></a></li>--}}
+                            {{--                            <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{count(collect(Session::get('cart')))}}</span></a></li>--}}
                             <li class="cart-box"><a href="{{url('carts')}}"><i class="flaticon-shopping-cart-1"></i><span>{{sizeof(\App\Cart::all())}}</span></a></li>
                         </ul>
                     </div>

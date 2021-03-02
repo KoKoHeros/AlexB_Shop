@@ -135,7 +135,7 @@
                                         </td>
                                         <td data-title="Amount"  style="text-align: center">{{$item -> price * $item ->quantity}}</td>
                                         <td data-title="action"  style="text-align: center">
-                                                <i class="fa fa-trash md-dark pmd-sm remove_button"   title="{{$item -> product_id}}" ></i>
+                                            <i class="fa fa-trash md-dark pmd-sm remove_button"   title="{{$item -> product_id}}" ></i>
                                         </td>
                                     </tr>
                                     @php($num = $num + 1)

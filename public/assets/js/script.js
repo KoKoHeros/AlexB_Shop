@@ -13721,7 +13721,7 @@
             min: 0,
             orientation: "horizontal",
             range: false,
-            step: 1,
+            step: 50,
             value: 0,
             values: null,
 
@@ -18599,11 +18599,46 @@
             values: [ 50, 500 ],
             slide: function( event, ui ) {
                 $( "input.property-amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-            }
-        });
 
+                $.ajax({
+                    url: "/change_filter",
+                    type: 'get',
+                    // cache: false,
+                    data: {
+                        mins:ui.values[0],
+                        maxs: ui.values[1],
+                        // price: event.target.alt
+                    },
+                    success: function (result) {
+
+                        window.location.href = "shop";
+
+                        // for(i=0;i<result.length;i++){
+//                       let obj = JSON.parse(result);
+//                         function printValues(obj) {
+//                             for(var k in obj) {
+//                                 if(obj[k] instanceof Object) {
+//
+//
+//                                     printValues(obj[k]);
+//                                 } else {
+//                                     document.write(obj[k] + "<br>");
+//                                 };
+//                             }
+//                         };
+//
+// // Printing all the values from the resulting object
+//                         printValues(obj);
+                    }
+                });
+
+
+            }
+
+        });
         $( "input.property-amount" ).val( $( ".price-range-slider" ).slider( "values", 0 ) + " - $" + $( ".price-range-slider" ).slider( "values", 1 ) );
     }
+
 
 
     if ($('.product-details-content .bxslider').length) {
@@ -18778,7 +18813,7 @@ var $classInput = $(".quantity-spinner")
 $classInput.on("input", function() {
     $inputChangeClass.prop("class", this.value);
 
-        // alert(this.value+','+this.id)
+    // alert(this.value+','+this.id)
     $amount = event.target.value * event.target.alt;
     event.target.name = $amount;
     $.ajax({
@@ -18791,7 +18826,7 @@ $classInput.on("input", function() {
             // price: event.target.alt
         },
         success: function (result) {
-          // alert(result)
+            // alert(result)
             this.value = result;
             // location.reload();
         }
@@ -18847,28 +18882,47 @@ $classInput.on("input", function() {
 // });
 
 
-    function change_quantity(value) {
-        // if(event.target.value<1){event.target.value=1;}
-        $('#product_quantity').attr("name", value);
-        $('.add_cart').attr("name", value);
+function change_quantity(value) {
+    // if(event.target.value<1){event.target.value=1;}
+    $('#product_quantity').attr("name", value);
+    $('.add_cart').attr("name", value);
 
-    }
+}
 $(document).ready(function() {
-$(".remove_button").click(function (event) {
-    $product_id = event.target.title;
-    $.ajax({
-        url: "/remove",
-        type: 'get',
-        // cache: false,
-        data: {
-            product_id: $product_id,
-        },
-        success: function (result) {
-            $('#alert_button').attr("data-message", result);
-            $('#alert_button').attr("data-type", "success");
-            location.reload();
-            document.getElementById("alert_button").click();
-        }
+    $(".remove_button").click(function (event) {
+        $product_id = event.target.title;
+        $.ajax({
+            url: "/remove",
+            type: 'get',
+            // cache: false,
+            data: {
+                product_id: $product_id,
+            },
+            success: function (result) {
+                $('#alert_button').attr("data-message", result);
+                $('#alert_button').attr("data-type", "success");
+                location.reload();
+                document.getElementById("alert_button").click();
+            }
+        });
     });
 });
+$(document).ready(function() {
+    $(".property-amount").click(function (event) {
+        $product_id = event.target.title;
+        $.ajax({
+            url: "/remove",
+            type: 'get',
+            // cache: false,
+            data: {
+                product_id: $product_id,
+            },
+            success: function (result) {
+                $('#alert_button').attr("data-message", result);
+                $('#alert_button').attr("data-type", "success");
+                location.reload();
+                document.getElementById("alert_button").click();
+            }
+        });
+    });
 });

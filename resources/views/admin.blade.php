@@ -135,10 +135,10 @@
                                         <li class="panel-outer">
                                             <div class="form-container">
                                                 <form method="post" action="blog.html">
-                                                <div class="form-group">
-                                                    <input type="search" name="field-name" value="" placeholder="Search...." required="">
-                                                    <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
-                                                </div>
+                                                    <div class="form-group">
+                                                        <input type="search" name="field-name" value="" placeholder="Search...." required="">
+                                                        <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </li>
@@ -189,70 +189,70 @@
     </div><!-- End Mobile Menu -->
 
     <!-- shop-page-section -->
-<section class="row">
-    <div class="container col-md-6 col-sm-12 col-xl-6">
-        <div  class="container" style="padding-left:20%; padding-right: 20%">
-            <form action="{{url('saveproduct')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Products</h1></div>
-                <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
-                <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
-                <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
-                {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
-                <div><label style="width: 49%">category:</label>
-                    <select  type="text" name="category" style="width:50%;border:solid 1px;">
-                        <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
-                        <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
-                        <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
-                        <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
-                        <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
-                        <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
-                        <option name="Bakery" style="border:solid 1px;">Bakery</option>
-                        <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
-                        <option name="Drinks" style="border:solid 1px;">Drinks</option>
-                        <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
-                    </select>
-                </div>
-                {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
-                <div><label style="width: 50%">Main image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
-                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
-                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
-                <div style="margin-top: 5%" class="text-center"><button type="submit" class="btn btn-primary" >Save</button></div>
-            </form>
+    <section class="row">
+        <div class="container col-md-6 col-sm-12 col-xl-6">
+            <div  class="container" style="padding-left:20%; padding-right: 20%">
+                <form action="{{url('saveproduct')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Products</h1></div>
+                    <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
+                    <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
+                    <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
+                    {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
+                    <div><label style="width: 49%">category:</label>
+                        <select  type="text" name="category" style="width:50%;border:solid 1px;">
+                            <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
+                            <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
+                            <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
+                            <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
+                            <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
+                            <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
+                            <option name="Bakery" style="border:solid 1px;">Bakery</option>
+                            <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
+                            <option name="Drinks" style="border:solid 1px;">Drinks</option>
+                            <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
+                        </select>
+                    </div>
+                    {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
+                    <div><label style="width: 50%">Main image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                    <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                    <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                    <div style="margin-top: 5%" class="text-center"><button type="submit" class="btn btn-primary" >Save</button></div>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xl-6">
-        <div class="container" style="padding-left:20%; padding-right: 20%">
-            <form action="{{url('savefeaturedproduct')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div  style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Featured Products</h1></div>
-                <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
-                <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
-                <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
-                {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
-                <div><label style="width: 49%">category:</label>
-                    <select  type="text" name="category" style="width:50%;border:solid 1px;">
-                        <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
-                        <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
-                        <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
-                        <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
-                        <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
-                        <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
-                        <option name="Bakery" style="border:solid 1px;">Bakery</option>
-                        <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
-                        <option name="Drinks" style="border:solid 1px;">Drinks</option>
-                        <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
-                    </select>
-                </div>
-                {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
-                <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
-                <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
-                <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
-                <div class="text-center" style="margin-top: 5%"><button type="submit" class="btn btn-primary">Save</button></div>
-            </form>
+        <div class="col-md-6 col-sm-12 col-xl-6">
+            <div class="container" style="padding-left:20%; padding-right: 20%">
+                <form action="{{url('savefeaturedproduct')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div  style="padding: 10%"><h1 style="text-align: center;font-weight: bold;">Featured Products</h1></div>
+                    <div><label style="width: 50%">Product Name:</label><input style="border:solid 1px;width: 50%" type="text" name="name"></div>
+                    <div><label style="width: 50%">price:</label><input  style="border:solid 1px;width: 50%" type="text" name="price"></div>
+                    <div><label style="width: 50%">Description:</label><input style="border:solid 1px;width: 50%" type="text" name="description"></div>
+                    {{--<div><label>Tags:</label><input  type="text" name="tags"></div>--}}
+                    <div><label style="width: 49%">category:</label>
+                        <select  type="text" name="category" style="width:50%;border:solid 1px;">
+                            <option name="Fruit&Vegetables" style="border:solid 1px;">Fruit & Vegetables</option>
+                            <option name="MeatPoultry" style="border:solid 1px;">Meat & Poultry</option>
+                            <option name="Fish&Seafood" style="border:solid 1px;">Fish & Seafood</option>
+                            <option name="Delicatessen" style="border:solid 1px;">Delicatessen</option>
+                            <option name="Diary&Eggs" style="border:solid 1px;">Diary & Eggs</option>
+                            <option name="EverydayEssentials" style="border:solid 1px;">Everyday Essentials</option>
+                            <option name="Bakery" style="border:solid 1px;">Bakery</option>
+                            <option name="Impulse&Snaking" style="border:solid 1px;">Impulse & Snaking</option>
+                            <option name="Drinks" style="border:solid 1px;">Drinks</option>
+                            <option name="CateringSupplies" style="border:solid 1px;">Catering Supplies</option>
+                        </select>
+                    </div>
+                    {{--<div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="main_image"></div>--}}
+                    <div><label style="width: 50%">Main Image:</label><input style="width: 50%" type="file" name="sub_image1"></div>
+                    <div><label style="width: 50%">Sub Image1:</label><input style="width: 50%" type="file" name="sub_image2"></div>
+                    <div><label style="width: 50%">Sub Image2:</label><input style="width: 50%" type="file" name="sub_image3"></div>
+                    <div class="text-center" style="margin-top: 5%"><button type="submit" class="btn btn-primary">Save</button></div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
-<!-- shop-page-section end -->
+    </section>
+    <!-- shop-page-section end -->
 
 @include('includes.footer')

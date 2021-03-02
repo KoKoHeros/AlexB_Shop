@@ -30,11 +30,11 @@
                         <div class="widget-title">
                             <h3>Filter</h3>
                         </div>
-                        <div class="range-slider clearfix" style="width: 100%">
+                        <div class="range-slider clearfix" style="width: 100%;">
                             <div class="price-range-slider  container-fluid"></div>
                             <div class="clearfix">
                                 <div class="title" ></div>
-                                <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                                <div class="input"><input onclick="change_amount()" type="text" id="property-amount" class="property-amount" name="field-name" readonly></div>
                             </div>
                         </div>
                     </div>

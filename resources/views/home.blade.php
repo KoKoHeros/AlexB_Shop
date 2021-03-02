@@ -120,13 +120,13 @@
                                 <div class="lower-content">
                                     <textarea name="product_id" id="product_id" style="display: none">{{$item->id}}</textarea>
                                     <h6><a href="detail.blade.php">{{$item->name}}</a></h6>
-                                    <ul class="rating clearfix">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                    </ul>
+                                    {{--<ul class="rating clearfix">--}}
+                                        {{--<li><i class="fas fa-star"></i></li>--}}
+                                        {{--<li><i class="fas fa-star"></i></li>--}}
+                                        {{--<li><i class="fas fa-star"></i></li>--}}
+                                        {{--<li><i class="fas fa-star"></i></li>--}}
+                                        {{--<li><i class="fas fa-star"></i></li>--}}
+                                    {{--</ul>--}}
                                     <span class="price">${{$item->price}}</span>
                                 </div>
                             </div>

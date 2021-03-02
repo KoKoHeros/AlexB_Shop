@@ -5,6 +5,7 @@ use App\Cart;
 use App\Check;
 use App\Email;
 use App\FeaturedProduct;
+use App\Filter;
 use App\Order;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
@@ -270,6 +271,33 @@ class ShopController extends Controller
         }
         return $amount;
     }
+
+    function change_filter(Request $request){
+        $mins = $_GET['mins'];
+        $maxs = $_GET['maxs'];
+        $products = Product::all();
+        foreach ($products as $item){
+            if($item -> price >= $mins and $item -> price <= $maxs){
+                $filters = new Filter();
+
+                $filters -> name = $item -> name;
+                $filters -> price = $item -> price;
+                $filters -> product_id = $item -> id;
+                $filters -> category = $item -> category;
+                $filters -> sub_image1 = $item -> sub_image1;
+                $filters -> sub_image2 = $item -> sub_image2;
+                $filters -> sub_image3 = $item -> sub_image3;
+                $filters -> save();
+
+            }
+        }
+        $product = Filter::where('product_id',1)->paginate(16);
+//        return response()->json(['shop' => $products]);
+        return view('shop')->with(['product' => $product]);
+
+//        return json_encode($products);
+    }
+
 
     function change_quantity(Request $request){
         $product_id = $_GET['product_id'];
