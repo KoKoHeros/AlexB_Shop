@@ -86,9 +86,9 @@
                                         </ul>
                                         <ul class="tags list clearfix">
                                             <li>Tags:</li>
-                                            <li><a href="">Food</a>,</li>
-                                            <li><a href="">Sausage</a>,</li>
-                                            <li><a href="">Lamb</a></li>
+                                            <li><a>Food</a>,</li>
+                                            <li><a>Sausage</a>,</li>
+                                            <li><a>Lamb</a></li>
                                         </ul>
                                     </div>
                                     <div class="othre-options clearfix">
