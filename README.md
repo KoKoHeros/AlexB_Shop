@@ -1,2 +1,2 @@
 # AlexB_Shop
-This is a ecormmerce for AlexB
+This is a ecommerce for AlexB
