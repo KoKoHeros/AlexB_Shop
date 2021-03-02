@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Payment;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
 
@@ -66,6 +67,17 @@ class PaymentsController extends Controller
 
         if ($response->isSuccessful()) {
             $arr_body = $response->getData();
+
+            $payment = new Payment();
+            $payment -> payment_id = $arr_body['id'];
+            $payment -> payment_method = "paypal";
+
+            $payment->payer_id = $arr_body['payer']['payer_info']['payer_id'];
+            $payment->payer_email = $arr_body['payer']['payer_info']['email'];
+            $payment->amount = $arr_body['transactions'][0]['amount']['total'];
+//            $payment->currency = env('PAYPAL_CURRENCY');
+            $payment->payment_status = $arr_body['state'];
+            $payment -> save();
             $data['payment_id'] = $arr_body['id'];
             $data['payment_method'] = "paypal";
 

@@ -44,4 +44,5 @@ return [
         'redirect'      => env('APP_URL') . '/oauth/google/callback',
     ],
 
+
 ];

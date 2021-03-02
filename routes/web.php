@@ -31,6 +31,11 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
+
+Route::get('/login', function () {
+    return view('Auth/login');
+});
+
 Route::get('shop','ShopController@shop')->name('shop');
 Route::get('All','ShopController@shop')->name('shop');
 Route::get('Fruit&Vegetables','ShopController@Fruit_Vegetables')->name('Fruit_Vegetables');
@@ -53,6 +58,10 @@ Route::get('remove','ShopController@remove')->name('remove');
 Route::post('sendEmail','ShopController@sendEmail')->name('sendEmail');
 Route::get('change_filter','ShopController@change_filter')->name('change_filter');
 
+
+Route::get('auth/social', 'Auth\LoginController@show')->name('social.login');
+Route::get('oauth/{driver}', 'Auth\LoginController@redirectToProvider')->name('social.oauth');
+Route::get('oauth/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.callback');
 
 Route::post('more_details','ShopController@more_details')->name('more_details');
 Route::get('admin','AdminController@admin')->name('admin');
